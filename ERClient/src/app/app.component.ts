@@ -8,14 +8,20 @@ import { Emotion } from './emotion';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app works!';
+  title: string = 'app works!';
   emotion: Emotion;
+  story: string = 'ini';
 
   constructor(private erService: ErService){}
 
   ngOnInit(): void {
+    this.title = 'loaded!';
+  }
+
+  onSubmit(): void {
+    this.title = 'loaded!';
+    console.log(this.story);
     this.erService.getEmotion()
       .subscribe(emo => this.emotion = emo);
-    this.title = 'loaded!';
   }
 }
