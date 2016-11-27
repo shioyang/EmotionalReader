@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, Response } from '@angular/http';
+import { Headers, RequestOptions, Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Emotion } from './emotion';
 
@@ -17,7 +17,9 @@ export class ErService {
   }
 
   getEmotion(sentence: string): Observable<Emotion> {
-    return this.http.post(this.erServerUrl + '/sentence', sentence)
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.erServerUrl + '/sentence', JSON.stringify({sentence: sentence}), options)
             .map(response => response.json() as Emotion);
   }
 }
