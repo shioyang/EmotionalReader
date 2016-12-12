@@ -20,6 +20,6 @@ export class ErService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.erServerUrl + '/sentence', JSON.stringify({sentence: sentence}), options)
-            .map(response => response.json() as Emotion);
+            .map(response => new Emotion(response.json()));
   }
 }

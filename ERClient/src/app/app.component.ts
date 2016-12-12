@@ -29,6 +29,6 @@ export class AppComponent implements OnInit {
 
   showSentenceEmotion(): void {
     this.erService.getEmotion(this.story)
-      .subscribe(emo => this.response = emo.toString());
+      .subscribe((emo: Emotion) => this.response = emo.toString());
   }
 }
