@@ -25,10 +25,24 @@ export class AppComponent implements OnInit {
 //    this.erService.getSampleEmotion()
 //      .subscribe(emo => this.emotion = emo);
     this.showSentenceEmotion();
+    // this.showSentenceEmotion();
   }
 
   showSentenceEmotion(): void {
     this.erService.getEmotion(this.story)
       .subscribe((emo: Emotion) => this.response = emo.toString());
+  }
+
+  showParagraphEmotion(): void {
+    this.erService.getEmotionsFromParagraph(this.story)
+      .subscribe((emotions: Array<Emotion>) => this.response = this.emotionsToString(emotions));
+  }
+
+  private emotionsToString(emotions: Array<Emotion>): string {
+    let ret: string = "";
+    emotions.forEach(function(emo){
+      ret += emo.toString();
+    });
+    return ret;
   }
 }
