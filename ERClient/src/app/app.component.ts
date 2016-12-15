@@ -10,7 +10,7 @@ import { Emotion } from './emotion';
 export class AppComponent implements OnInit {
   title: string = 'app works!';
   emotion: Emotion;
-  story: string = '';
+  paragraph: string = '';
   response: string = '';
 
   constructor(private erService: ErService){}
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
 
   onSubmit(): void {
     this.title = 'submitted!';
-    console.log(this.story);
+    console.log(this.paragraph);
 //    this.erService.getSampleEmotion()
 //      .subscribe(emo => this.emotion = emo);
     this.showSentenceEmotion();
@@ -29,12 +29,12 @@ export class AppComponent implements OnInit {
   }
 
   showSentenceEmotion(): void {
-    this.erService.getEmotion(this.story)
+    this.erService.getEmotion(this.paragraph)
       .subscribe((emo: Emotion) => this.response = emo.toString());
   }
 
   showParagraphEmotion(): void {
-    this.erService.getEmotionsFromParagraph(this.story)
+    this.erService.getEmotionsFromParagraph(this.paragraph)
       .subscribe((emotions: Array<Emotion>) => this.response = this.emotionsToString(emotions));
   }
 
