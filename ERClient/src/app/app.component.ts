@@ -40,9 +40,8 @@ export class AppComponent implements OnInit {
 
   private emotionsToString(emotions: Array<Emotion>): string {
     let ret: string = "";
-    emotions.forEach(function(emo){
-      ret += emo.toString();
-    });
-    return ret;
+    return emotions.map(function(emo){
+             return emo.toString();
+           }).join('\n');
   }
 }
