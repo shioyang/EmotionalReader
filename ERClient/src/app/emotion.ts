@@ -5,10 +5,10 @@ export class Emotion {
   sadness: number;
   surprise: number;
 
-//  sentence: string;
+  sentence: string;
 
   constructor(json: any){
-    var arr = ["anger", "joy", "fear", "sadness", "surprise"];
+    var arr = ["anger", "joy", "fear", "sadness", "surprise", "sentence"];
     arr.forEach(function(val){
       if(json[val]){
         this[val] = json[val];
@@ -21,7 +21,7 @@ export class Emotion {
             ", joy: " + this.joy +
             ", fear: " + this.fear +
             ", sadness: " + this.sadness +
-            ", surprise: " + this.surprise;
-//            ", sentence: " + this.sentence;
+            ", surprise: " + this.surprise +
+            ", sentence: " + this.sentence;
   }
 }
