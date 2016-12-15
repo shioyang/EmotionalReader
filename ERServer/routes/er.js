@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 var indico = require('indico.io');
-indico.apiKey =  '';
 
 var logError = function(err) { console.log(err); }
 
@@ -35,10 +34,13 @@ router.get('/emotion', function(req, res){
  *   fear: number;
  *   sadness: number;
  *   surprise: number;
+ *   sentence: string;
  */
 router.post('/sentence', function(req, res){
-  indico.emotion(req.body.sentence)
+  let sentence = req.body.sentence;
+  indico.emotion(sentence)
     .then(function(res_emotion){
+      res_emotion.sentence = sentence;
       res.send(res_emotion);
     })
     .catch(logError);
