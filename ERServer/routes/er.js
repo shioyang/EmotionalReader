@@ -46,4 +46,47 @@ router.post('/sentence', function(req, res){
     .catch(logError);
 });
 
+/*
+ * Request params
+ *   paragraph: string;
+ * Response
+ *   anger: number;
+ *   joy: number;
+ *   fear: number;
+ *   sadness: number;
+ *   surprise: number;
+ *   sentence: string;
+ */
+router.post('/paragraph', function(req, res){
+  let paragraph = req.body.paragraph;
+  let sentenceArr = paragraph.split(/[.!?]/);
+  let defArr = [];
+  let res_emotions = [];
+
+  sentenceArr.forEach(function(sentence){
+    defArr.push(new Promise(function(resolve, reject){
+      indico.emotion(sentence)
+        .then(function(res_emotion){
+          res_emotion.sentence = sentence;
+          res_emotions.push(res_emotion);
+          resolve();
+        })
+        .catch(function(err){
+          console.log(err);
+          reject(err);
+        });
+    }));
+  })
+
+  Promise.all(defArr).then(function(){
+    let obj = {
+      paragraph: res_emotions
+    };
+    res.send(obj);
+  })
+  .catch(function(err){
+    console.log(err);
+  });
+});
+
 module.exports = router;
