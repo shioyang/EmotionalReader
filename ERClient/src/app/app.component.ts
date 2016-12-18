@@ -22,10 +22,7 @@ export class AppComponent implements OnInit {
   onSubmit(): void {
     this.title = 'submitted!';
     console.log(this.paragraph);
-//    this.erService.getSampleEmotion()
-//      .subscribe(emo => this.emotion = emo);
-    this.showSentenceEmotion();
-    // this.showSentenceEmotion();
+    this.showParagraphEmotion();
   }
 
   showSentenceEmotion(): void {

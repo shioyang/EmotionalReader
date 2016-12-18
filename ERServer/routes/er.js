@@ -80,7 +80,7 @@ router.post('/paragraph', function(req, res){
 
   Promise.all(defArr).then(function(){
     let obj = {
-      paragraph: res_emotions
+      list: res_emotions
     };
     res.send(obj);
   })
