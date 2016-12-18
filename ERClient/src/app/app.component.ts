@@ -9,9 +9,8 @@ import { Emotion } from './emotion';
 })
 export class AppComponent implements OnInit {
   title: string = 'app works!';
-  emotion: Emotion;
+  emotions: Array<Emotion> = [];
   paragraph: string = '';
-  response: string = '';
 
   constructor(private erService: ErService){}
 
@@ -27,12 +26,14 @@ export class AppComponent implements OnInit {
 
   showSentenceEmotion(): void {
     this.erService.getEmotion(this.paragraph)
-      .subscribe((emo: Emotion) => this.response = emo.toString());
+      .subscribe((emo: Emotion) => this.emotions = [emo]);
+      // .subscribe((emo: Emotion) => this.emotions = emo.toString());
   }
 
   showParagraphEmotion(): void {
     this.erService.getEmotionsFromParagraph(this.paragraph)
-      .subscribe((emotions: Array<Emotion>) => this.response = this.emotionsToString(emotions));
+      .subscribe((emotions: Array<Emotion>) => this.emotions = emotions);
+      // .subscribe((emotions: Array<Emotion>) => this.response = this.emotionsToString(emotions));
   }
 
   private emotionsToString(emotions: Array<Emotion>): string {
