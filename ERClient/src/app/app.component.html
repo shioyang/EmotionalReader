@@ -1,16 +1,15 @@
 <h1>
   {{title}}
 </h1>
-<div>
+<div style="padding-bottom: 20px">
   <form (ngSubmit)="onSubmit()">
     <textarea rows="5" cols="30" [(ngModel)]="paragraph" name="paragraph"></textarea>
     <button type="submit">Execute</button>
   </form>
 </div>
-<div>
-<div *ngFor="let em of emotions; let i = index">
-  <table style="padding-bottom: 5px;">
-    <tr><td colspan="2">{{em.sentence}}<td></tr>
+<div *ngFor="let em of emotions; let i = index" style="padding-bottom: 10px">
+  <table style="border-collapse: collapse">
+    <tr style="border-bottom: 1px solid gray"><td colspan="2">{{em.sentence}}<td></tr>
     <tr><td><label for="anger_{{i}}">Anger:</label></td><td><span id="anger_{{i}}">{{em.anger}}</span></td></tr>
     <tr><td><label for="joy_{{i}}">Joy:</label></td><td><span id="joy_{{i}}">{{em.joy}}</span></td></tr>
     <tr><td><label for="fear_{{i}}">Fear:</label></td><td><span id="fear_{{i}}">{{em.fear}}</span></td></tr>
