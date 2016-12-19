@@ -8,18 +8,19 @@ import { Emotion } from './emotion';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title: string = 'app works!';
+  title: string = 'Emotional Reader';
+  status: string = 'App Works!';
   emotions: Array<Emotion> = [];
   paragraph: string = '';
 
   constructor(private erService: ErService){}
 
   ngOnInit(): void {
-    this.title = 'loaded!';
+    this.status = 'App Loaded!';
   }
 
   onSubmit(): void {
-    this.title = 'submitted!';
+    this.status = 'Submitted!';
     console.log(this.paragraph);
     this.showParagraphEmotion();
   }

@@ -1,15 +1,13 @@
-<h1>
-  {{title}}
-</h1>
+<h1>{{title}}</h1>
 <div style="padding-bottom: 20px">
   <form (ngSubmit)="onSubmit()">
-    <textarea rows="5" cols="30" [(ngModel)]="paragraph" name="paragraph"></textarea>
+    <textarea rows="10" cols="60" [(ngModel)]="paragraph" name="paragraph"></textarea>
     <button type="submit">Execute</button>
   </form>
 </div>
-<div *ngFor="let em of emotions; let i = index" style="padding-bottom: 10px">
-  <table style="border-collapse: collapse">
-    <tr style="border-bottom: 1px solid gray"><td colspan="2">{{em.sentence}}<td></tr>
+<div *ngFor="let em of emotions; let i = index" style="padding-bottom: 15px">
+  <div style="padding-bottom: 5px">{{em.sentence}}</div>
+  <table *ngIf="true" style="border: 1px solid darkgrey; padding: 5px">
     <tr><td><label for="anger_{{i}}">Anger:</label></td><td><span id="anger_{{i}}">{{em.anger}}</span></td></tr>
     <tr><td><label for="joy_{{i}}">Joy:</label></td><td><span id="joy_{{i}}">{{em.joy}}</span></td></tr>
     <tr><td><label for="fear_{{i}}">Fear:</label></td><td><span id="fear_{{i}}">{{em.fear}}</span></td></tr>
@@ -17,3 +15,4 @@
     <tr><td><label for="surprise_{{i}}">Surprise:</label></td><td><span id="surprise_{{i}}">{{em.surprise}}</span></td></tr>
   </table>
 </div>
+<h5>App status: {{status}}</h5>
