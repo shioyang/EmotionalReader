@@ -3,11 +3,12 @@
   <form (ngSubmit)="onSubmit()">
     <textarea rows="10" cols="60" [(ngModel)]="paragraph" name="paragraph"></textarea>
     <button type="submit">Execute</button>
+    <input type="checkbox" [(ngModel)]="debugMode" name="debugMode"><label>debug mode</label>
   </form>
 </div>
 <div *ngFor="let em of emotions; let i = index" style="padding-bottom: 15px">
   <div style="padding-bottom: 5px">{{em.sentence}}</div>
-  <table *ngIf="true" style="border: 1px solid darkgrey; padding: 5px">
+  <table *ngIf="debugMode" style="border: 1px solid darkgrey; padding: 5px">
     <tr><td><label for="anger_{{i}}">Anger:</label></td><td><span id="anger_{{i}}">{{em.anger}}</span></td></tr>
     <tr><td><label for="joy_{{i}}">Joy:</label></td><td><span id="joy_{{i}}">{{em.joy}}</span></td></tr>
     <tr><td><label for="fear_{{i}}">Fear:</label></td><td><span id="fear_{{i}}">{{em.fear}}</span></td></tr>

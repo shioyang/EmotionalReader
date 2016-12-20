@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   status: string = 'App Works!';
   emotions: Array<Emotion> = [];
   paragraph: string = '';
+  debugMode: boolean = false;
 
   constructor(private erService: ErService){}
 
