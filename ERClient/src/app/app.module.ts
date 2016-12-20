@@ -5,10 +5,12 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ErService } from './er.service';
+import { EmotionToColorPipe } from './emotion-to-color.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmotionToColorPipe
   ],
   imports: [
     BrowserModule,
