@@ -42,4 +42,6 @@
     </table>
   </div>
 </div>
-<h5>App status: {{status}}</h5>
+<div *ngIf="debugMode">
+  <h5>App status: {{status}}</h5>
+</div>
