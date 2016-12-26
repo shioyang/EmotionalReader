@@ -11,11 +11,26 @@
     {{em.sentence}}
   </div>
   <table *ngIf="debugMode" style="border: 1px solid darkgrey; padding: 5px">
-    <tr><td><label for="anger_{{i}}">Anger:</label></td><td><span id="anger_{{i}}">{{em.anger}}</span></td></tr>
-    <tr><td><label for="joy_{{i}}">Joy:</label></td><td><span id="joy_{{i}}">{{em.joy}}</span></td></tr>
-    <tr><td><label for="fear_{{i}}">Fear:</label></td><td><span id="fear_{{i}}">{{em.fear}}</span></td></tr>
-    <tr><td><label for="sadness_{{i}}">Sadness:</label></td><td><span id="sadness_{{i}}">{{em.sadness}}</span></td></tr>
-    <tr><td><label for="surprise_{{i}}">Surprise:</label></td><td><span id="surprise_{{i}}">{{em.surprise}}</span></td></tr>
+    <tr>
+      <td><label for="anger_{{i}}">Anger:</label></td>
+      <td><span id="anger_{{i}}">{{em.anger}}</span></td>
+    </tr>
+    <tr>
+      <td><label for="joy_{{i}}">Joy:</label></td>
+      <td><span id="joy_{{i}}">{{em.joy}}</span></td>
+    </tr>
+    <tr>
+      <td><label for="fear_{{i}}">Fear:</label></td>
+      <td><span id="fear_{{i}}">{{em.fear}}</span></td>
+    </tr>
+    <tr>
+      <td><label for="sadness_{{i}}">Sadness:</label></td>
+      <td><span id="sadness_{{i}}">{{em.sadness}}</span></td>
+    </tr>
+    <tr>
+      <td><label for="surprise_{{i}}">Surprise:</label></td>
+      <td><span id="surprise_{{i}}">{{em.surprise}}</span></td>
+    </tr>
   </table>
 </div>
 <h5>App status: {{status}}</h5>
