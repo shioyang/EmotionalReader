@@ -8,4 +8,14 @@ describe('EmotionToColorPipe', () => {
     let pipe = new EmotionToColorPipe();
     expect(pipe).toBeTruthy();
   });
+
+  it('transform a value', () => {
+    let pipe = new EmotionToColorPipe();
+    expect(pipe.transform('surprise')).toEqual('gold');
+  });
+
+  it('transform an unknown value', () => {
+    let pipe = new EmotionToColorPipe();
+    expect(pipe.transform('aaa')).toEqual('black');
+  });
 });
