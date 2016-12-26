@@ -63,10 +63,12 @@ router.post('/paragraph', function(req, res){
   let defArr = [];
   let res_emotions = [];
 
-  sentenceArr.forEach(function(sentence){
+  sentenceArr.forEach(function(sentence, index){
+    if(sentence === ""){ return; }
     defArr.push(new Promise(function(resolve, reject){
       indico.emotion(sentence)
         .then(function(res_emotion){
+          res_emotion.index = index; // for sorting
           res_emotion.sentence = sentence;
           res_emotions.push(res_emotion);
           resolve();
@@ -79,6 +81,9 @@ router.post('/paragraph', function(req, res){
   })
 
   Promise.all(defArr).then(function(){
+    res_emotions.sort(function(a, b){
+      return a.index - b.index;
+    });
     let obj = {
       list: res_emotions
     };
