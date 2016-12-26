@@ -13,6 +13,21 @@ export class AppComponent implements OnInit {
   emotions: Array<Emotion> = [];
   paragraph: string = '';
 
+  // Images
+  img_path: string = 'assets/images/';
+  img_anger: string = this.img_path + 'mad_32x32.png';
+  img_joy: string = this.img_path + 'happy_32x32.png';
+  img_fear: string = this.img_path + 'crying_32x32.png';
+  img_sadness: string = this.img_path + 'unhappy_32x32.png';
+  img_surprise: string = this.img_path + 'surprised_32x32.png';
+  imgMap = {
+    anger: this.img_anger,
+    joy: this.img_joy,
+    fear: this.img_fear,
+    sadness: this.img_sadness,
+    surprise: this.img_surprise
+  };
+
   debugMode: boolean = false;
 
   constructor(private erService: ErService){}
@@ -44,5 +59,9 @@ export class AppComponent implements OnInit {
     return emotions.map(function(emo){
              return emo.toString();
            }).join('\n');
+  }
+
+  getImgPath(emotion: Emotion): string {
+    return this.imgMap[emotion.topEmotion] || '';
   }
 }
