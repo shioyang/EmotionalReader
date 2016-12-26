@@ -6,37 +6,40 @@
     <input type="checkbox" [(ngModel)]="debugMode" name="debugMode" id="debugMode"><label for="debugMode">debug mode</label>
   </form>
 </div>
-<div *ngFor="let em of emotions; let i = index" style="padding-bottom: 15px">
-  <div style="padding-bottom: 5px" [style.color]="em.topEmotion | emotionToColorPipe">
-    <img [src]="getImgPath(em)" title="{{em.topEmotion}}">
-    <span style="padding: 0 5px">{{em.sentence}}</span>
+<div style="border: 1px dashed gray; padding: 30px">
+  <div *ngIf="emotions == false" style="font-style: italic"><span>No Sentences</span></div>
+  <div *ngFor="let em of emotions; let i = index" style="padding-bottom: 15px">
+    <div style="padding-bottom: 5px" [style.color]="em.topEmotion | emotionToColorPipe">
+      <img [src]="getImgPath(em)" title="{{em.topEmotion}}">
+      <span style="padding: 0 5px">{{em.sentence}}</span>
+    </div>
+    <table *ngIf="debugMode" style="border: 1px solid darkgrey; padding: 5px">
+      <tr>
+        <td><img src="{{img_anger}}"></td>
+        <td><label for="anger_{{i}}">Anger:</label></td>
+        <td><span id="anger_{{i}}">{{em.anger}}</span></td>
+      </tr>
+      <tr>
+        <td><img src="{{img_joy}}"></td>
+        <td><label for="joy_{{i}}">Joy:</label></td>
+        <td><span id="joy_{{i}}">{{em.joy}}</span></td>
+      </tr>
+      <tr>
+        <td><img src="{{img_fear}}"></td>
+        <td><label for="fear_{{i}}">Fear:</label></td>
+        <td><span id="fear_{{i}}">{{em.fear}}</span></td>
+      </tr>
+      <tr>
+        <td><img src="{{img_sadness}}"></td>
+        <td><label for="sadness_{{i}}">Sadness:</label></td>
+        <td><span id="sadness_{{i}}">{{em.sadness}}</span></td>
+      </tr>
+      <tr>
+        <td><img src="{{img_surprise}}"></td>
+        <td><label for="surprise_{{i}}">Surprise:</label></td>
+        <td><span id="surprise_{{i}}">{{em.surprise}}</span></td>
+      </tr>
+    </table>
   </div>
-  <table *ngIf="debugMode" style="border: 1px solid darkgrey; padding: 5px">
-    <tr>
-      <td><img src="{{img_anger}}"></td>
-      <td><label for="anger_{{i}}">Anger:</label></td>
-      <td><span id="anger_{{i}}">{{em.anger}}</span></td>
-    </tr>
-    <tr>
-      <td><img src="{{img_joy}}"></td>
-      <td><label for="joy_{{i}}">Joy:</label></td>
-      <td><span id="joy_{{i}}">{{em.joy}}</span></td>
-    </tr>
-    <tr>
-      <td><img src="{{img_fear}}"></td>
-      <td><label for="fear_{{i}}">Fear:</label></td>
-      <td><span id="fear_{{i}}">{{em.fear}}</span></td>
-    </tr>
-    <tr>
-      <td><img src="{{img_sadness}}"></td>
-      <td><label for="sadness_{{i}}">Sadness:</label></td>
-      <td><span id="sadness_{{i}}">{{em.sadness}}</span></td>
-    </tr>
-    <tr>
-      <td><img src="{{img_surprise}}"></td>
-      <td><label for="surprise_{{i}}">Surprise:</label></td>
-      <td><span id="surprise_{{i}}">{{em.surprise}}</span></td>
-    </tr>
-  </table>
 </div>
 <h5>App status: {{status}}</h5>
