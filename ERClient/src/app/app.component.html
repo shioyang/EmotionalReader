@@ -20,27 +20,27 @@
       <span style="padding: 0 5px">{{em.sentence}}</span>
     </div>
     <table *ngIf="debugMode" style="border: 1px solid darkgrey; padding: 5px; margin: 0 40px">
-      <tr>
+      <tr [ngClass]="{'erHighlight': em.topEmotion == 'anger'}">
         <td><img src="{{img_s_anger}}"></td>
         <td><label for="anger_{{i}}">Anger:</label></td>
         <td><span id="anger_{{i}}">{{em.anger}}</span></td>
       </tr>
-      <tr>
+      <tr [ngClass]="{'erHighlight': em.topEmotion == 'joy'}">
         <td><img src="{{img_s_joy}}"></td>
         <td><label for="joy_{{i}}">Joy:</label></td>
         <td><span id="joy_{{i}}">{{em.joy}}</span></td>
       </tr>
-      <tr>
+      <tr [ngClass]="{'erHighlight': em.topEmotion == 'fear'}">
         <td><img src="{{img_s_fear}}"></td>
         <td><label for="fear_{{i}}">Fear:</label></td>
         <td><span id="fear_{{i}}">{{em.fear}}</span></td>
       </tr>
-      <tr>
+      <tr [ngClass]="{'erHighlight': em.topEmotion == 'sadness'}">
         <td><img src="{{img_s_sadness}}"></td>
         <td><label for="sadness_{{i}}">Sadness:</label></td>
         <td><span id="sadness_{{i}}">{{em.sadness}}</span></td>
       </tr>
-      <tr>
+      <tr [ngClass]="{'erHighlight': em.topEmotion == 'surprise'}">
         <td><img src="{{img_s_surprise}}"></td>
         <td><label for="surprise_{{i}}">Surprise:</label></td>
         <td><span id="surprise_{{i}}">{{em.surprise}}</span></td>
