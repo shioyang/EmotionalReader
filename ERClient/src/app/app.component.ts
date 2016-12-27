@@ -41,20 +41,27 @@ export class AppComponent implements OnInit {
     this.status = 'App Loaded!';
   }
 
-  onSubmit(): void {
-    this.status = 'Submitted!';
-    console.log(this.paragraph);
-    this.showParagraphEmotion();
+  onClear(): void {
+    this.emotions = [];
+    this.paragraph = "";
+    this.status = 'Cleared!';
   }
 
-  showSentenceEmotion(): void {
-    this.erService.getEmotion(this.paragraph)
+  onSubmit(): void {
+    this.showParagraphEmotion(this.paragraph);
+    this.status = 'Submitted!';
+  }
+
+  showSentenceEmotion(paragraph: string): void {
+    if(!paragraph){ return; }
+    this.erService.getEmotion(paragraph)
       .subscribe((emo: Emotion) => this.emotions = [emo]);
       // .subscribe((emo: Emotion) => this.emotions = emo.toString());
   }
 
-  showParagraphEmotion(): void {
-    this.erService.getEmotionsFromParagraph(this.paragraph)
+  showParagraphEmotion(paragraph: string): void {
+    if(!paragraph){ return; }
+    this.erService.getEmotionsFromParagraph(paragraph)
       .subscribe((emotions: Array<Emotion>) => this.emotions = emotions);
       // .subscribe((emotions: Array<Emotion>) => this.response = this.emotionsToString(emotions));
   }
