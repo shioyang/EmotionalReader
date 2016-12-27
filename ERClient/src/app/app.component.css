@@ -12,9 +12,13 @@
     background-color: brown;
 }
 
+/*
 .erClearButton {
-    color: black;
-    background-color: ivory;
+}
+*/
+
+.erSampleButton {
+    font-size: 12px;
 }
 
 .erHighlight {

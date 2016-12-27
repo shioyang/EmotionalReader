@@ -47,6 +47,14 @@ export class AppComponent implements OnInit {
     this.status = 'Cleared!';
   }
 
+  onSample(): void {
+    // CHAPTER II
+    //   The Pool of Tears - Giant Alice watching Rabbit run away
+    // Ref: https://www.cs.cmu.edu/~rgs/alice-table.html
+    this.paragraph = "Alice took up the fan and gloves, and, as the hall was very hot, she kept fanning herself all the time she went on talking: `Dear, dear! How queer everything is to-day! And yesterday things went on just as usual. I wonder if I've been changed in the night? Let me think: was I the same when I got up this morning? I almost think I can remember feeling a little different. But if I'm not the same, the next question is, Who in the world am I? Ah, that's the great puzzle!' And she began thinking over all the children she knew that were of the same age as herself, to see if she could have been changed for any of them.";
+    this.status = 'Input Sample!';
+  }
+
   onSubmit(): void {
     this.showParagraphEmotion(this.paragraph);
     this.status = 'Submitted!';
