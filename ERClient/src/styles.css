@@ -3,3 +3,12 @@ body {
     padding: 5px 30px;
     background-color: papayawhip;
 }
+
+.erButton {
+    font-size: 16px;
+    background-color: ivory;
+    border: 0px solid black;
+    color: black;
+    margin: 10px 10px;
+    box-shadow: 2px 2px 1px 0px grey;
+}
