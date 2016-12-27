@@ -20,6 +20,11 @@ export class AppComponent implements OnInit {
   img_fear: string = this.img_path + 'crying_32x32.png';
   img_sadness: string = this.img_path + 'unhappy_32x32.png';
   img_surprise: string = this.img_path + 'surprised_32x32.png';
+  img_s_anger: string = this.img_path + 'mad_16x16.png';
+  img_s_joy: string = this.img_path + 'happy_16x16.png';
+  img_s_fear: string = this.img_path + 'crying_16x16.png';
+  img_s_sadness: string = this.img_path + 'unhappy_16x16.png';
+  img_s_surprise: string = this.img_path + 'surprised_16x16.png';
   imgMap = {
     anger: this.img_anger,
     joy: this.img_joy,

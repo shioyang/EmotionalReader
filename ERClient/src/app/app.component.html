@@ -19,31 +19,42 @@
       <img [src]="getImgPath(em)" title="{{em.topEmotion}}">
       <span style="padding: 0 5px">{{em.sentence}}</span>
     </div>
-    <table *ngIf="debugMode" style="border: 1px solid darkgrey; padding: 5px">
+    <table *ngIf="debugMode" style="border: 1px solid darkgrey; padding: 5px; margin: 0 40px">
       <tr>
-        <td><img src="{{img_anger}}"></td>
+        <td><img src="{{img_s_anger}}"></td>
         <td><label for="anger_{{i}}">Anger:</label></td>
         <td><span id="anger_{{i}}">{{em.anger}}</span></td>
       </tr>
       <tr>
-        <td><img src="{{img_joy}}"></td>
+        <td><img src="{{img_s_joy}}"></td>
         <td><label for="joy_{{i}}">Joy:</label></td>
         <td><span id="joy_{{i}}">{{em.joy}}</span></td>
       </tr>
       <tr>
-        <td><img src="{{img_fear}}"></td>
+        <td><img src="{{img_s_fear}}"></td>
         <td><label for="fear_{{i}}">Fear:</label></td>
         <td><span id="fear_{{i}}">{{em.fear}}</span></td>
       </tr>
       <tr>
-        <td><img src="{{img_sadness}}"></td>
+        <td><img src="{{img_s_sadness}}"></td>
         <td><label for="sadness_{{i}}">Sadness:</label></td>
         <td><span id="sadness_{{i}}">{{em.sadness}}</span></td>
       </tr>
       <tr>
-        <td><img src="{{img_surprise}}"></td>
+        <td><img src="{{img_s_surprise}}"></td>
         <td><label for="surprise_{{i}}">Surprise:</label></td>
         <td><span id="surprise_{{i}}">{{em.surprise}}</span></td>
+      </tr>
+    </table>
+  </div>
+  <div style="padding: 25px 0 0 0">
+    <table>
+      <tr>
+        <td><img src="{{img_s_anger}}"><span style="padding: 0 5px">Anger</span></td>
+        <td><img src="{{img_s_joy}}"><span style="padding: 0 5px">Joy</span></td>
+        <td><img src="{{img_s_fear}}"><span style="padding: 0 5px">Fear</span></td>
+        <td><img src="{{img_s_sadness}}"><span style="padding: 0 5px">Sadness</span></td>
+        <td><img src="{{img_s_surprise}}"><span style="padding: 0 5px">Surprise</span></td>
       </tr>
     </table>
   </div>
