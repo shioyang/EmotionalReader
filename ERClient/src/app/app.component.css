@@ -1,6 +1,15 @@
+.erTextarea {
+    padding: 5px;
+}
+
+.erTextarea:focus {
+    outline: 2px solid brown;
+    outline-offset: -1px;
+}
+
 .erExecButton {
     font-size: 16px;
-    background-color: coral;
+    background-color: brown;
     border: 0px solid black;
     color: white;
     margin: 10px 10px;
