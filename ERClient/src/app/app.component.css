@@ -1,0 +1,8 @@
+.erExecButton {
+    font-size: 16px;
+    background-color: coral;
+    border: 0px solid black;
+    color: white;
+    margin: 10px 10px;
+    box-shadow: 2px 2px 1px 0px grey;
+}
