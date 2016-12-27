@@ -11,7 +11,7 @@ describe('EmotionToColorPipe', () => {
 
   it('transform a value', () => {
     let pipe = new EmotionToColorPipe();
-    expect(pipe.transform('surprise')).toEqual('gold');
+    expect(pipe.transform('surprise')).toEqual('darkorange');
   });
 
   it('transform an unknown value', () => {

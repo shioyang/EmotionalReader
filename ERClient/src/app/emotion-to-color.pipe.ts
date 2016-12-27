@@ -10,7 +10,7 @@ export class EmotionToColorPipe implements PipeTransform {
     joy: 'deeppink',
     fear: 'green',
     sadness: 'blue',
-    surprise: 'gold'
+    surprise: 'darkorange'
   };
 
   transform(value: string): string {
