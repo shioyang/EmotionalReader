@@ -3,15 +3,18 @@ var router = express.Router();
 
 var indico = require('indico.io');
 
+/*** Utils ***/
 var logError = function(err) { console.log(err); }
 
+/*** REST ***/
 /* GET */
 /*
  * Response
  *   API list
  */
 router.get('/', function(req, res, next) {
-  res.render('api_list', { title: 'ER API List' }); //TODO
+  res.render('api_list', { title: 'ER API List' });
+  //TODO
 });
 
 /* GET */
@@ -58,10 +61,46 @@ router.post('/sentence', function(req, res){
  *   sentence: string;
  */
 router.post('/paragraph', function(req, res){
+  let splitToSentences = function(paragraph){
+    // .
+    let sentenceArr = paragraph.split(".");
+    sentenceArr.forEach(function(sent, index){
+      if(sent != ""){
+        sentenceArr[index] = sent + ".";
+      }
+    });
+    // !
+    let newArr2 = [];
+    sentenceArr.forEach(function(sent){
+      let arr2 = sent.split("!");
+      arr2.forEach(function(sent2, index2){
+        if(sent2 != "" && index2 != arr2.length - 1){
+          arr2[index2] = sent2 + "!";
+        }
+      });
+      newArr2 = newArr2.concat(arr2);
+    });
+    sentenceArr = newArr2;
+    // ?
+    let newArr3 = [];
+    sentenceArr.forEach(function(sent){
+      let arr3 = sent.split("?");
+      arr3.forEach(function(sent3, index3){
+        if(sent3 != "" && index3 != arr3.length - 1){
+          arr3[index3] = sent3 + "?";
+        }
+      });
+      newArr3 = newArr3.concat(arr3);
+    });
+    sentenceArr = newArr3;
+    return sentenceArr;
+  }
+
   let paragraph = req.body.paragraph;
-  let sentenceArr = paragraph.split(/[.!?]/);
+  let sentenceArr = splitToSentences(paragraph);
   let defArr = [];
   let res_emotions = [];
+  console.log(sentenceArr);
 
   sentenceArr.forEach(function(sentence, index){
     if(sentence === ""){ return; }
