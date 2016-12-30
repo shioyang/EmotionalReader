@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var indico = require('indico.io');
+// TODO: Set indico.apiKey from process.env
 
 /*** Utils ***/
 var logError = function(err) { console.log(err); }
