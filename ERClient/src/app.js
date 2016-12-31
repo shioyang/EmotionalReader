@@ -4,7 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var er = require('./routes/er');
 
 var app = express();
 
@@ -14,7 +13,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(__dirname));
 
+// API path
+var er = require('./routes/er');
 app.use('/er', er);
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
 app.get('/*', function(req, res){
   res.sendFile(path.join(__dirname, 'index.html'));
