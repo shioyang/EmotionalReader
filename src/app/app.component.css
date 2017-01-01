@@ -1,10 +1,19 @@
-.erTextarea {
+.erFormArea {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.erFormArea .erTextarea {
     padding: 5px;
 }
 
-.erTextarea:focus {
+.erFormArea .erTextarea:focus {
     outline: 2px solid brown;
     outline-offset: -1px;
+}
+
+.erFormArea .erNote {
+    font-size: 12px;
 }
 
 .erExecButton {
