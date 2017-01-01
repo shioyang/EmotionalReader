@@ -66,7 +66,7 @@ router.post('/paragraph', function(req, res){
     // .
     let sentenceArr = paragraph.split(".");
     sentenceArr.forEach(function(sent, index){
-      if(sent != ""){
+      if(sent != "" && index != sentenceArr.length - 1){
         sentenceArr[index] = sent + ".";
       }
     });
