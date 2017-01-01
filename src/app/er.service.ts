@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Headers, RequestOptions, Http, Response } from '@angular/http';
+import { Headers, RequestOptions, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Emotion } from './emotion';
 
-import 'rxjs/Rx'; //for operators
+import 'rxjs/Rx'; // for operators
 
 @Injectable()
 export class ErService {
@@ -33,10 +33,10 @@ export class ErService {
   private createEmotionsFromJson(json: any): Array<Emotion> {
     let arr = json.list;
     let ret: Array<Emotion> = [];
-    if(arr && arr.length > 0){
+    if (arr && arr.length > 0) {
       arr.forEach(function(obj){
         ret.push(new Emotion(obj));
-      })
+      });
     }
     return ret;
   }
