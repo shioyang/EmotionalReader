@@ -2,7 +2,7 @@
 
 Emotional Reader is a web service to split input text to sentences with emotional icons which are expressed by the sentences.
 
-![Overall](readme_assets/ER_demo01.png)
+<img src="readme_assets/ER_demo01.png" alt="Overall" width="400px">
 
 ## How to use
 
